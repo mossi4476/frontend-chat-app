@@ -9,11 +9,7 @@ import { loginRoute } from "../utils/APIRoutes";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [values, setValues] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [values, setValues] = useState({ username: "", password: "" });
   const toastOptions = {
     position: "bottom-right",
     autoClose: 8000,
@@ -26,16 +22,18 @@ export default function Login() {
       navigate("/");
     }
   }, []);
+
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
+
   const validateForm = () => {
     const { username, password } = values;
     if (username === "") {
-      toast.error("Email and Password are required", toastOptions);
+      toast.error("Email and Password is required.", toastOptions);
       return false;
     } else if (password === "") {
-      toast.error("Email and Password are required", toastOptions);
+      toast.error("Email and Password is required.", toastOptions);
       return false;
     }
     return true;
@@ -62,6 +60,7 @@ export default function Login() {
       }
     }
   };
+
   return (
     <>
       <FormContainer>
@@ -93,6 +92,7 @@ export default function Login() {
     </>
   );
 }
+
 const FormContainer = styled.div`
   height: 100vh;
   width: 100vw;
